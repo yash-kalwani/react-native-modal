@@ -17,11 +17,11 @@ This library is available on npm, install it with: `npm i @kalwani/react-native-
 1. Import react-native-modal:
 
 ```javascript
-import Modal from "@kalwani/react-native-modal";
+import Modal from '@kalwani/react-native-modal';
 ```
 
 2. Simply show/hide the modal by changing the `isVisible` prop to true/false.
-The `onModalHide` is the function which will execute when the modal closes *(either due to it's own state change or due to some other modal forcing it to close)*, **both these props are required:**
+   The `onModalHide` is the function which will execute when the modal closes _(either due to it's own state change or due to some other modal forcing it to close)_, **both these props are required:**
 
 ```javascript
 state = { showModal: true }
@@ -30,7 +30,7 @@ render () {
   closeModal = () => {
     this.setState({ showModal: false })
   }
-  
+
   return (
     <View>
       <Modal isVisible={showModal} onModalHide={this.closeModal} >
@@ -49,23 +49,23 @@ The following example consists of a component (`ModalTester`) which opens three 
 The state of these modals are controlled by `modal1` `modal2` `modal3` values.
 
 ```javascript
-import React, { Component } from "react";
-import { View, Text } from "react-native";
-import Modal from "@kalwani/react-native-modal";
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
+import Modal from '@kalwani/react-native-modal';
 
 export default class ModalTester extends Component {
   state = {
     modal1: false,
     modal2: false,
-    modal3: false
+    modal3: false,
   };
 
   style = {
-    color: "white",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: 20
-  }
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 20,
+  };
 
   componentWillMount() {
     setTimeout(() => {
@@ -98,36 +98,30 @@ export default class ModalTester extends Component {
         <Modal
           isVisible={modal1}
           onModalHide={this.closeModalOne}
-          style={{ backgroundColor: "red" }}
+          style={{ backgroundColor: 'red' }}
         >
           <View>
-            <Text style={this.style}>
-              This is modal 1
-            </Text>
+            <Text style={this.style}>This is modal 1</Text>
           </View>
         </Modal>
 
         <Modal
           isVisible={modal2}
           onModalHide={this.closeModalTwo}
-          style={{ backgroundColor: "green" }}
+          style={{ backgroundColor: 'green' }}
         >
           <View>
-            <Text style={this.style}>
-              This is modal 2
-            </Text>
+            <Text style={this.style}>This is modal 2</Text>
           </View>
         </Modal>
 
         <Modal
           isVisible={modal3}
           onModalHide={this.closeModalThree}
-          style={{ backgroundColor: "blue" }}
+          style={{ backgroundColor: 'blue' }}
         >
           <View>
-            <Text style={this.style}>
-              This is modal 3
-            </Text>
+            <Text style={this.style}>This is modal 3</Text>
           </View>
         </Modal>
       </View>
@@ -157,12 +151,14 @@ export default class ModalTester extends Component {
 | onModalShow                    | func             | () => null     | Called when the modal is completely visible                                                  |
 | onSwipe                        | func             | null           | Called when the `swipeThreshold` has been reached                                            |
 | scrollOffset                   | number           | 0              | When > 0, disables swipe-to-close, in order to implement scrollable content                  |
-| scrollOffsetMax                | number           | 0              | Used to implement overscroll feel when content is scrollable.|
-| scrollTo                       | func             | null           | Used to implement scrollable modal.                                                            |
+| scrollOffsetMax                | number           | 0              | Used to implement overscroll feel when content is scrollable.                                |
+| scrollTo                       | func             | null           | Used to implement scrollable modal.                                                          |
 | swipeThreshold                 | number           | 100            | Swiping threshold that when reached calls `onSwipe`                                          |
 | swipeDirection                 | string           | null           | Defines the direction where the modal can be swiped (can be 'up', 'down', 'left, or 'right') |
 | useNativeDriver                | bool             | false          | Defines if animations should use native driver                                               |
 | hideModalContentWhileAnimating | bool             | false          | Enhances the performance by hiding the modal content until the animations complete           |
 | style                          | any              | null           | Style applied to the modal                                                                   |
-----
+
+---
+
 Pull requests, feedbacks and suggestions are welcome!
