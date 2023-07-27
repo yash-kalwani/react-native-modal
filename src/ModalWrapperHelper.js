@@ -16,3 +16,9 @@ export const pushInstance = (instance) => {
     notifyInstances( modalInstances.length, modalInstances[0] )
 }
 
+
+export const notifyInstances = (length, topModalInstance) => {
+    listeners.forEach( (listener) => {
+        listener( length, topModalInstance );
+    });
+}
