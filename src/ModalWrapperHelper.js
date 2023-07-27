@@ -7,3 +7,12 @@ export const attachListener = (listener) => {
     }
     listeners.push(listener)
 }
+
+export const pushInstance = (instance) => {
+    if( modalInstances.includes(instance) ) {
+        return;
+    }
+    modalInstances.push(instance);
+    notifyInstances( modalInstances.length, modalInstances[0] )
+}
+
