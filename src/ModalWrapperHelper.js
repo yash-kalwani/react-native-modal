@@ -22,3 +22,11 @@ export const notifyInstances = (length, topModalInstance) => {
         listener( length, topModalInstance );
     });
 }
+
+export const removeInstance = (instance) => {
+    if ( instance === modalInstances[0] ) {
+        modalInstances.shift();
+        notifyInstances( modalInstances.length, modalInstances[0] )
+    }
+}
+
