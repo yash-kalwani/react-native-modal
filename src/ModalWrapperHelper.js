@@ -30,3 +30,12 @@ export const removeInstance = (instance) => {
     }
 }
 
+export const removeInstanceOnUnmount = (instance, listener) => {
+    if( modalInstances.indexOf(instance) > -1 ) {
+        modalInstances.splice(modalInstances.indexOf(instance),1)
+    }
+    
+    if( listeners.indexOf(listener) > -1 ) {
+        listeners.splice( listeners.indexOf(listener) , 1)
+    }
+}
